@@ -72,13 +72,13 @@ syn keyword clFunction          get_work_dim get_global_size get_global_id get_l
 
 " math functions
 syn keyword clFunction          cos cosh cospi acos acosh acospi
-syn keyword clFunction          sin sincos sinh sinpi asin asinh asinpi 
-syn keyword clFunction          tan tanh tanpi atan atan2 atanh atanpi atan2pi 
+syn keyword clFunction          sin sincos sinh sinpi asin asinh asinpi
+syn keyword clFunction          tan tanh tanpi atan atan2 atanh atanpi atan2pi
 syn keyword clFunction          cbrt ceil copysign
-syn keyword clFunction          erfc erf 
-syn keyword clFunction          exp exp2 exp10 expm1 
+syn keyword clFunction          erfc erf
+syn keyword clFunction          exp exp2 exp10 expm1
 syn keyword clFunction          fabs fdim floor fma fmax fmin fmod
-syn keyword clFunction          fract frexp hypot ilogb 
+syn keyword clFunction          fract frexp hypot ilogb
 syn keyword clFunction          ldexp lgamma lgamma_r
 syn keyword clFunction          log log2 log10 log1p logb
 syn keyword clFunction          mad modf
@@ -137,13 +137,13 @@ syn keyword clConstant          MAXFLOAT HUGE_VAL HUGE_VALF INFINITY NAN
 syn keyword clConstant          FLT_DIG FLT_MANT_DIG FLT_MAX_10_EXP FLT_MAX_EXP FLT_MIN_10_EXP FLT_MIN_EXP FLT_RADIX FLT_MAX FLT_MIN FLT_EPSILON
 syn keyword clConstant          DBL_DIG DBL_MANT_DIG DBL_MAX_10_EXP DBL_MAX_EXP DBL_MIN_10_EXP DBL_MIN_EXP DBL_MAX DBL_MIN DBL_EPSILON
 syn keyword clConstant          CHAR_BIT CHAR_MAX CHAR_MIN INT_MIN INT_MAX LONG_MAX LONG_MIN SCHAR_MAX SCHAR_MIN SHRT_MAX SHRT_MIN UCHAR_MAX UCHAR_MIN UINT_MAX ULONG_MAX
-syn keyword clConstant          M_E_F M_LOG2E_F M_LOG10E_F M_LN2_F M_LN10_F M_PI_F M_PI2_F M_PI4_F M_1_PI_F M_2_PI_F M_2_SQRTPI_F M_SQRT2_F M_SQRT1_2_F 
-syn keyword clConstant          M_E M_LOG2E M_LOG10E M_LN2 M_LN10 M_PI M_PI2 M_PI4 M_1_PI M_2_PI M_2_SQRTPI M_SQRT2 M_SQRT1_2 
+syn keyword clConstant          M_E_F M_LOG2E_F M_LOG10E_F M_LN2_F M_LN10_F M_PI_F M_PI2_F M_PI4_F M_1_PI_F M_2_PI_F M_2_SQRTPI_F M_SQRT2_F M_SQRT1_2_F
+syn keyword clConstant          M_E M_LOG2E M_LOG10E M_LN2 M_LN10 M_PI M_PI2 M_PI4 M_1_PI M_2_PI M_2_SQRTPI M_SQRT2 M_SQRT1_2
 syn keyword clConstant          CL_INTENSITY CL_RA CL_ARGB CL_BGRA CL_RGBA CL_R CL_RG CL_RGB CL_RGx CL_RGBx CL_Rx CL_A CL_LUMINANCE
 syn keyword clConstant          CL_SNORM_INT8 CL_SNORM_INT16 CL_UNORM_INT8 CL_UNORM_INT16 CL_UNORM_SHORT_565 CL_UNORM_SHORT_555 CL_UNORM_INT_101010 CL_SIGNED_INT8 CL_SIGNED_INT16 CL_SIGNED_INT32 CL_UNSIGNED_INT8 CL_UNSIGNED_INT16 CL_UNSIGNED_INT32 CL_HALF_FLOAT CL_FLOAT
 syn keyword clConstant          CLK_ADDRESS_REPEAT CLK_ADDRESS_MIRRORED_REPEAT CLK_ADDRESS_CLAMP CLK_ADDRESS_CLAMP_TO_EDGE CLK_ADDRESS_NONE
 syn keyword clConstant          CLK_FILTER_NEAREST CLK_FILTER_LINEAR
-syn keyword clConstant          CLK_NORMALIZED_COORDS_TRUE CLK_NORMALIZED_COORDS_FALSE 
+syn keyword clConstant          CLK_NORMALIZED_COORDS_TRUE CLK_NORMALIZED_COORDS_FALSE
 syn keyword clConstant          CLK_GLOBAL_MEM_FENCE CLK_LOCAL_MEM_FENCE
 
 hi def link clStorageClass	StorageClass
