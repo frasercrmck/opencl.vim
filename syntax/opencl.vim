@@ -42,7 +42,8 @@ syn keyword clType           half2 half3 half4 half8 half16
 
 " other types
 syn keyword clType           ptrdiff_t intptr_t uintptr_t
-syn keyword clType           image1d_t image2d_t image3d_t image1d_array_t image2d_array_t image1d_buffer_t sampler_t event_t
+syn keyword clType           image1d_t image2d_t image3d_t image1d_array_t image2d_array_t image1d_buffer_t
+syn keyword clType           sampler_t event_t
 
 " reserved types
 syn keyword clType           bool2 bool3 bool4 bool8 bool16
@@ -91,8 +92,8 @@ syn keyword clFunction       remainder remquo rint rootn round rsqrt sqrt
 syn keyword clFunction       tgamma trunc
 syn keyword clFunction       half_cos half_divide half_exp half_exp2 half_exp10 half_log
 syn keyword clFunction       half_log2 half_log10 half_powr half_recip half_rsqrt half_sin half_sqrt half_tan
-syn keyword clFunction       native_cos native_divide native_exp native_exp2 native_exp10 native_log
-syn keyword clFunction       native_log2 native_log10 native_powr native_recip native_rsqrt native_sin native_sqrt native_tan
+syn keyword clFunction       native_cos native_divide native_exp native_exp2 native_exp10 native_log native_log2
+syn keyword clFunction       native_log10 native_powr native_recip native_rsqrt native_sin native_sqrt native_tan
 
 " integer functions
 syn keyword clFunction       abs abs_diff add_sat hadd rhadd clz mad_hi mad_sat
