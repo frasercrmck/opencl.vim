@@ -50,7 +50,8 @@ syn keyword clType           quad2 quad3 quad4 quad8 quad16
 syn match clType             "\(float\|double\)\(2\|3\|4\|8\|16\)x\(2\|3\|4\|8\|16\)"
 
 " abstract data types
-syn keyword clType           _cl_platform_id _cl_device_id _cl_context _cl_command_queue _cl_mem _cl_program _cl_kernel _cl_event _cl_sampler
+syn keyword clType           _cl_platform_id _cl_device_id _cl_context _cl_command_queue
+syn keyword clType           _cl_mem _cl_program _cl_kernel _cl_event _cl_sampler
 
 " image format descriptor structure
 syn keyword clType           cl_image_format
@@ -68,7 +69,8 @@ syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|u
 syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)_sat_\(rte\|rtz\|rtp\|rtn\)("
 
 " work item functions
-syn keyword clFunction       get_work_dim get_global_size get_global_id get_local_size get_local_id get_num_groups get_group_id get_global_offset
+syn keyword clFunction       get_work_dim get_global_size get_global_id get_local_size
+syn keyword clFunction       get_local_id get_num_groups get_group_id get_global_offset
 
 " math functions
 syn keyword clFunction       cos cosh cospi acos acosh acospi
@@ -87,11 +89,14 @@ syn keyword clFunction       nan nextafter
 syn keyword clFunction       pow pown powr
 syn keyword clFunction       remainder remquo rint rootn round rsqrt sqrt
 syn keyword clFunction       tgamma trunc
-syn keyword clFunction       half_cos half_divide half_exp half_exp2 half_exp10 half_log half_log2 half_log10 half_powr half_recip half_rsqrt half_sin half_sqrt half_tan
-syn keyword clFunction       native_cos native_divide native_exp native_exp2 native_exp10 native_log native_log2 native_log10 native_powr native_recip native_rsqrt native_sin native_sqrt native_tan
+syn keyword clFunction       half_cos half_divide half_exp half_exp2 half_exp10 half_log
+syn keyword clFunction       half_log2 half_log10 half_powr half_recip half_rsqrt half_sin half_sqrt half_tan
+syn keyword clFunction       native_cos native_divide native_exp native_exp2 native_exp10 native_log
+syn keyword clFunction       native_log2 native_log10 native_powr native_recip native_rsqrt native_sin native_sqrt native_tan
 
 " integer functions
-syn keyword clFunction       abs abs_diff add_sat hadd rhadd clz mad_hi mad_sat max min mul_hi rotate sub_sat upsample mad24 mul24
+syn keyword clFunction       abs abs_diff add_sat hadd rhadd clz mad_hi mad_sat
+syn keyword clFunction       max min mul_hi rotate sub_sat upsample mad24 mul24
 
 " common functions
 syn keyword clFunction       clamp degrees max min mix radians step smoothstep sign
@@ -103,7 +108,8 @@ syn keyword clFunction       cross distance dot length normalize fast_distance f
 syn keyword clFunction       vec_step shuffle shuffle2
 
 " relational functions
-syn keyword clFunction       isequal isnotequal isgreater isgreaterequal isless islessequal islessgreater isfinite isinf isnan isnormal isordered isunordered signbit any all bitselect select
+syn keyword clFunction       isequal isnotequal isgreater isgreaterequal isless islessequal islessgreater
+syn keyword clFunction       isfinite isinf isnan isnormal isordered isunordered signbit any all bitselect select
 
 " vector data load and store functions
 syn keyword clFunction       vload_half vstore_half
@@ -122,7 +128,8 @@ syn match clFunction         "vstorea_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\|rt
 " image read and write functions
 syn match clFunction         "read_image\(f\|i\|ui\|h\)("
 syn match clFunction         "write_image\(f\|i\|ui\|h\)("
-syn keyword clFunction       get_image_width get_image_height get_image_depth get_image_array_size get_image_dim get_image_channel_data_type get_image_channel_order
+syn keyword clFunction       get_image_width get_image_height get_image_depth get_image_array_size
+syn keyword clFunction       get_image_dim get_image_channel_data_type get_image_channel_order
 
 " explicit memory fence functions
 syn keyword clFunction       barrier mem_fence read_mem_fence write_mem_fence
@@ -134,14 +141,32 @@ syn keyword clFunction       async_work_group_copy async_work_group__strided_cop
 syn match clFunction         "atom\(ic\)\?_\(add\|sub\|xchg\|inc\|dec\|cmpxchg\|min\|max\|and\|or\|xor\)("
 
 syn keyword clConstant       MAXFLOAT HUGE_VAL HUGE_VALF INFINITY NAN
-syn keyword clConstant       FLT_DIG FLT_MANT_DIG FLT_MAX_10_EXP FLT_MAX_EXP FLT_MIN_10_EXP FLT_MIN_EXP FLT_RADIX FLT_MAX FLT_MIN FLT_EPSILON
-syn keyword clConstant       DBL_DIG DBL_MANT_DIG DBL_MAX_10_EXP DBL_MAX_EXP DBL_MIN_10_EXP DBL_MIN_EXP DBL_MAX DBL_MIN DBL_EPSILON
-syn keyword clConstant       CHAR_BIT CHAR_MAX CHAR_MIN INT_MIN INT_MAX LONG_MAX LONG_MIN SCHAR_MAX SCHAR_MIN SHRT_MAX SHRT_MIN UCHAR_MAX UCHAR_MIN UINT_MAX ULONG_MAX
-syn keyword clConstant       M_E_F M_LOG2E_F M_LOG10E_F M_LN2_F M_LN10_F M_PI_F M_PI2_F M_PI4_F M_1_PI_F M_2_PI_F M_2_SQRTPI_F M_SQRT2_F M_SQRT1_2_F
-syn keyword clConstant       M_E M_LOG2E M_LOG10E M_LN2 M_LN10 M_PI M_PI2 M_PI4 M_1_PI M_2_PI M_2_SQRTPI M_SQRT2 M_SQRT1_2
-syn keyword clConstant       CL_INTENSITY CL_RA CL_ARGB CL_BGRA CL_RGBA CL_R CL_RG CL_RGB CL_RGx CL_RGBx CL_Rx CL_A CL_LUMINANCE
-syn keyword clConstant       CL_SNORM_INT8 CL_SNORM_INT16 CL_UNORM_INT8 CL_UNORM_INT16 CL_UNORM_SHORT_565 CL_UNORM_SHORT_555 CL_UNORM_INT_101010 CL_SIGNED_INT8 CL_SIGNED_INT16 CL_SIGNED_INT32 CL_UNSIGNED_INT8 CL_UNSIGNED_INT16 CL_UNSIGNED_INT32 CL_HALF_FLOAT CL_FLOAT
-syn keyword clConstant       CLK_ADDRESS_REPEAT CLK_ADDRESS_MIRRORED_REPEAT CLK_ADDRESS_CLAMP CLK_ADDRESS_CLAMP_TO_EDGE CLK_ADDRESS_NONE
+
+syn keyword clConstant       FLT_DIG FLT_MANT_DIG FLT_MAX_10_EXP FLT_MAX_EXP FLT_MIN_10_EXP
+syn keyword clConstant       FLT_MIN_EXP FLT_RADIX FLT_MAX FLT_MIN FLT_EPSILON
+
+syn keyword clConstant       DBL_DIG DBL_MANT_DIG DBL_MAX_10_EXP DBL_MAX_EXP DBL_MIN_10_EXP
+syn keyword clConstant       DBL_MIN_EXP DBL_MAX DBL_MIN DBL_EPSILON
+
+syn keyword clConstant       CHAR_BIT CHAR_MAX CHAR_MIN INT_MIN INT_MAX LONG_MAX LONG_MIN
+syn keyword clConstant       SCHAR_MAX SCHAR_MIN SHRT_MAX SHRT_MIN UCHAR_MAX UCHAR_MIN UINT_MAX ULONG_MAX
+
+syn keyword clConstant       M_E_F M_LOG2E_F M_LOG10E_F M_LN2_F M_LN10_F M_PI_F M_PI2_F M_PI4_F
+syn keyword clConstant       M_1_PI_F M_2_PI_F M_2_SQRTPI_F M_SQRT2_F M_SQRT1_2_F
+
+syn keyword clConstant       M_E M_LOG2E M_LOG10E M_LN2 M_LN10 M_PI M_PI2 M_PI4
+syn keyword clConstant       M_1_PI M_2_PI M_2_SQRTPI M_SQRT2 M_SQRT1_2
+
+syn keyword clConstant       CL_INTENSITY CL_RA CL_ARGB CL_BGRA CL_RGBA CL_R CL_RG
+syn keyword clConstant       CL_RGB CL_RGx CL_RGBx CL_Rx CL_A CL_LUMINANCE
+
+syn keyword clConstant       CL_SNORM_INT8 CL_SNORM_INT16 CL_UNORM_INT8 CL_UNORM_INT16 CL_UNORM_SHORT_565
+syn keyword clConstant       CL_UNORM_SHORT_555 CL_UNORM_INT_101010 CL_SIGNED_INT8 CL_SIGNED_INT16 CL_SIGNED_INT32
+syn keyword clConstant       CL_UNSIGNED_INT8 CL_UNSIGNED_INT16 CL_UNSIGNED_INT32 CL_HALF_FLOAT CL_FLOAT
+
+syn keyword clConstant       CLK_ADDRESS_REPEAT CLK_ADDRESS_MIRRORED_REPEAT
+syn keyword clConstant       CLK_ADDRESS_CLAMP CLK_ADDRESS_CLAMP_TO_EDGE CLK_ADDRESS_NONE
+
 syn keyword clConstant       CLK_FILTER_NEAREST CLK_FILTER_LINEAR
 syn keyword clConstant       CLK_NORMALIZED_COORDS_TRUE CLK_NORMALIZED_COORDS_FALSE
 syn keyword clConstant       CLK_GLOBAL_MEM_FENCE CLK_LOCAL_MEM_FENCE
