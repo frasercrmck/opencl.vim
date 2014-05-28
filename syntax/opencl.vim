@@ -1,7 +1,8 @@
 " Vim syntax file
 " Language:	OpenCL (Open Computing Language)
-" Maintainer:	Terence Ou (rivan_@msn.com)
-" Last Change:	19-July-2010
+" Developer:	Terence Ou (rivan_@msn.com)
+" Maintainer:	Fraser Cormack (frasercrmck@gmail.com)
+" Last Change:	28-May-2014
 
 if version < 600
   syntax clear
@@ -41,7 +42,7 @@ syn keyword clType              half2 half3 half4 half8 half16
 
 " other types
 syn keyword clType              ptrdiff_t intptr_t uintptr_t
-syn keyword clType		image2d_t image3d_t sampler_t event_t
+syn keyword clType		image1d_t image2d_t image3d_t image1d_array_t image2d_array_t image1d_buffer_t sampler_t event_t
 
 " reserved types
 syn keyword clType              bool2 bool3 bool4 bool8 bool16
@@ -76,11 +77,12 @@ syn keyword clFunction          tan tanh tanpi atan atan2 atanh atanpi atan2pi
 syn keyword clFunction          cbrt ceil copysign
 syn keyword clFunction          erfc erf 
 syn keyword clFunction          exp exp2 exp10 expm1 
-syn keyword clFunction          fabs fdim floor fma fmax fmin 
+syn keyword clFunction          fabs fdim floor fma fmax fmin fmod
 syn keyword clFunction          fract frexp hypot ilogb 
-syn keyword clFunction          ldexp ldexp lgamma lgamma_r
+syn keyword clFunction          ldexp lgamma lgamma_r
 syn keyword clFunction          log log2 log10 log1p logb
 syn keyword clFunction          mad modf
+syn keyword clFunction          maxmag minmag
 syn keyword clFunction          nan nextafter
 syn keyword clFunction          pow pown powr
 syn keyword clFunction          remainder remquo rint rootn round rsqrt sqrt
@@ -95,7 +97,7 @@ syn keyword clFunction          abs abs_diff add_sat hadd rhadd clz mad_hi mad_s
 syn keyword clFunction          clamp degrees max min mix radians step smoothstep sign
 
 " geometric functions
-syn keyword clFunction          cross dot distance length normalize fast_distance fast_length fast_normalize
+syn keyword clFunction          cross distance dot length normalize fast_distance fast_length fast_normalize
 
 " miscellaneous vector functions
 syn keyword clFunction          vec_step shuffle shuffle2
@@ -120,7 +122,7 @@ syn match clFunction            "vstorea_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\
 " image read and write functions
 syn match clFunction            "read_image\(f\|i\|ui\|h\)("
 syn match clFunction            "write_image\(f\|i\|ui\|h\)("
-syn keyword clFunction          get_image_width get_image_height get_image_depth get_image_channel_data_type get_image_channel_order get_image_dim
+syn keyword clFunction          get_image_width get_image_height get_image_depth get_image_array_size get_image_dim get_image_channel_data_type get_image_channel_order
 
 " explicit memory fence functions
 syn keyword clFunction          barrier mem_fence read_mem_fence write_mem_fence
@@ -129,18 +131,19 @@ syn keyword clFunction          barrier mem_fence read_mem_fence write_mem_fence
 syn keyword clFunction          async_work_group_copy async_work_group__strided_copy wait_group_events prefetch
 
 " atomic functions
-syn match clFunction            "atom_\(add\|sub\|xchg\|inc\|dec\|cmpxchg\|min\|max\|and\|or\|xor\)("
+syn match clFunction            "atom\(ic\)\?_\(add\|sub\|xchg\|inc\|dec\|cmpxchg\|min\|max\|and\|or\|xor\)("
 
-syn keyword clConstant          MAXFLOAT HUGE_VALF INFINITY NAN
+syn keyword clConstant          MAXFLOAT HUGE_VAL HUGE_VALF INFINITY NAN
 syn keyword clConstant          FLT_DIG FLT_MANT_DIG FLT_MAX_10_EXP FLT_MAX_EXP FLT_MIN_10_EXP FLT_MIN_EXP FLT_RADIX FLT_MAX FLT_MIN FLT_EPSILON
+syn keyword clConstant          DBL_DIG DBL_MANT_DIG DBL_MAX_10_EXP DBL_MAX_EXP DBL_MIN_10_EXP DBL_MIN_EXP DBL_MAX DBL_MIN DBL_EPSILON
 syn keyword clConstant          CHAR_BIT CHAR_MAX CHAR_MIN INT_MIN INT_MAX LONG_MAX LONG_MIN SCHAR_MAX SCHAR_MIN SHRT_MAX SHRT_MIN UCHAR_MAX UCHAR_MIN UINT_MAX ULONG_MAX
-syn keyword clConstant          DBL_DIG DBL_MANT_DIG DBL_MAX_10_EXP DBL_MIN_10_EXP DBL_MIN_EXP DBL_MAX DBL_MIN DBL_EPSILON
+syn keyword clConstant          M_E_F M_LOG2E_F M_LOG10E_F M_LN2_F M_LN10_F M_PI_F M_PI2_F M_PI4_F M_1_PI_F M_2_PI_F M_2_SQRTPI_F M_SQRT2_F M_SQRT1_2_F 
 syn keyword clConstant          M_E M_LOG2E M_LOG10E M_LN2 M_LN10 M_PI M_PI2 M_PI4 M_1_PI M_2_PI M_2_SQRTPI M_SQRT2 M_SQRT1_2 
-syn keyword clConstant          CLK_NORMALIZED_COORDS_TRUE CLK_NORMALIZED_COORDS_FALSE 
-syn keyword clConstant          CLK_ADDRESS_REPEAT CLK_ADDRESS_CLAMP_TO_EDGE CLK_ADDRESS_CLAMP 
 syn keyword clConstant          CL_INTENSITY CL_RA CL_ARGB CL_BGRA CL_RGBA CL_R CL_RG CL_RGB CL_RGx CL_RGBx CL_Rx CL_A CL_LUMINANCE
 syn keyword clConstant          CL_SNORM_INT8 CL_SNORM_INT16 CL_UNORM_INT8 CL_UNORM_INT16 CL_UNORM_SHORT_565 CL_UNORM_SHORT_555 CL_UNORM_INT_101010 CL_SIGNED_INT8 CL_SIGNED_INT16 CL_SIGNED_INT32 CL_UNSIGNED_INT8 CL_UNSIGNED_INT16 CL_UNSIGNED_INT32 CL_HALF_FLOAT CL_FLOAT
-syn keyword clConstant          CLK_ADDRESS_NONE CLK_FILTER_NEAREST CLK_FILTER_LINEAR
+syn keyword clConstant          CLK_ADDRESS_REPEAT CLK_ADDRESS_MIRRORED_REPEAT CLK_ADDRESS_CLAMP CLK_ADDRESS_CLAMP_TO_EDGE CLK_ADDRESS_NONE
+syn keyword clConstant          CLK_FILTER_NEAREST CLK_FILTER_LINEAR
+syn keyword clConstant          CLK_NORMALIZED_COORDS_TRUE CLK_NORMALIZED_COORDS_FALSE 
 syn keyword clConstant          CLK_GLOBAL_MEM_FENCE CLK_LOCAL_MEM_FENCE
 
 hi def link clStorageClass	StorageClass
