@@ -2,7 +2,7 @@
 " Language:	OpenCL (Open Computing Language)
 " Developer:	Terence Ou (rivan_@msn.com)
 " Maintainer:	Fraser Cormack (frasercrmck@gmail.com)
-" Last Change:	28-May-2014
+" Last Change:	28-November-2014
 
 if version < 600
   syntax clear
@@ -59,87 +59,91 @@ syn keyword clType           cl_image_format
 
 syn keyword clCast           vec_type_hint work_group_size_hint aligned packed endian
 
-syn match clCast             "as_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)("
+syn match clCast             "as_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\s*("me=e-1,he=e-1
 
-syn match clCast             "as_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)("
+syn match clCast             "as_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
 
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)("
+syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
 
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)_sat("
+syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)_sat\s*("me=e-1,he=e-1
 
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)_sat_\(rte\|rtz\|rtp\|rtn\)("
+syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)_sat_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
 
 " work item functions
-syn keyword clFunction       get_work_dim get_global_size get_global_id get_local_size
-syn keyword clFunction       get_local_id get_num_groups get_group_id get_global_offset
+syn match clFunction         "get_work_dim\s*("me=e-1,he=e-1
+syn match clFunction         "get_local_\(id\|size\)\s*("me=e-1,he=e-1
+syn match clFunction         "get_global_\(id\|size\|offset\)\s*("me=e-1,he=e-1
+syn match clFunction         "get_\(num_groups\|group_id\)\s*("me=e-1,he=e-1
 
 " math functions
-syn keyword clFunction       cos cosh cospi acos acosh acospi
-syn keyword clFunction       sin sincos sinh sinpi asin asinh asinpi
-syn keyword clFunction       tan tanh tanpi atan atan2 atanh atanpi atan2pi
-syn keyword clFunction       cbrt ceil copysign
-syn keyword clFunction       erfc erf
-syn keyword clFunction       exp exp2 exp10 expm1
-syn keyword clFunction       fabs fdim floor fma fmax fmin fmod
-syn keyword clFunction       fract frexp hypot ilogb
-syn keyword clFunction       ldexp lgamma lgamma_r
-syn keyword clFunction       log log2 log10 log1p logb
-syn keyword clFunction       mad modf
-syn keyword clFunction       maxmag minmag
-syn keyword clFunction       nan nextafter
-syn keyword clFunction       pow pown powr
-syn keyword clFunction       remainder remquo rint rootn round rsqrt sqrt
-syn keyword clFunction       tgamma trunc
-syn keyword clFunction       half_cos half_divide half_exp half_exp2 half_exp10 half_log
-syn keyword clFunction       half_log2 half_log10 half_powr half_recip half_rsqrt half_sin half_sqrt half_tan
-syn keyword clFunction       native_cos native_divide native_exp native_exp2 native_exp10 native_log native_log2
-syn keyword clFunction       native_log10 native_powr native_recip native_rsqrt native_sin native_sqrt native_tan
+syn match clFunction         "a\?\(cos\|sin\|tan\)\(h\|pi\)\?\s*("me=e-1,he=e-1
+syn match clFunction         "\(sincos\|atan2\|atan2pi\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(cbrt\|ceil\|copysign\)\s*("me=e-1,he=e-1
+syn match clFunction         "erf\(c\)\?\s*("me=e-1,he=e-1
+syn match clFunction         "exp\(2\|10\|m1\)\s*("me=e-1,he=e-1
+syn match clFunction         "f\(abs\|dim\|loor\|ma\|max\|min\|mod\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(fract\|frexp\|hypot\|ilogb\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(ldexp\|lgamma\(_r\)\?\)\s*("me=e-1,he=e-1
+syn match clFunction         "log\(2\|10\|1p\|b\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(mad\|modf\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(max\|min\)mag\s*("me=e-1,he=e-1
+syn match clFunction         "\(nan\|nextafter\)\s*("me=e-1,he=e-1
+syn match clFunction         "pow\(n\|r\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(remainder\|remquo\|rint\|rootn\|round\|sqrt\|rsqrt\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(tgamma\|trunc\)\s*("me=e-1,he=e-1
+
+" half- and native-functions
+syn match clFunction         "\(half_\|native_\)\(cos\|divide\|exp\|exp2\|exp10\|log\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(half_\|native_\)\(log2\|log10\|powr\|recip\|rsqrt\|sin\|sqrt\|tan\)\s*("me=e-1,he=e-1
 
 " integer functions
-syn keyword clFunction       abs abs_diff add_sat hadd rhadd clz mad_hi mad_sat
-syn keyword clFunction       max min mul_hi rotate sub_sat upsample mad24 mul24
+syn match clFunction         "\(abs\(diff\)\?\|add_sat\|r\?hadd\|clz\|mad_\(hi\|sat\)\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(max\|min\|mul_hi\|rotate\|sub_sat\|upsample\|mad24\|mul24\)\s*("me=e-1,he=e-1
 
 " common functions
-syn keyword clFunction       clamp degrees max min mix radians step smoothstep sign
+syn match clFunction         "\(clamp\|degrees\|max\|min\|mix\|radians\|step\|smoothstep\|sign\)\s*("me=e-1,he=e-1
 
 " geometric functions
-syn keyword clFunction       cross distance dot length normalize fast_distance fast_length fast_normalize
+syn match clFunction         "\(cross\|dot\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(fast_\)\?\(distance\|length\|normalize\)\s*("me=e-1,he=e-1
 
 " miscellaneous vector functions
-syn keyword clFunction       vec_step shuffle shuffle2
+syn match clFunction         "\(vec_step\|shuffle\|shuffle2\)\s*("me=e-1,he=e-1
 
 " relational functions
-syn keyword clFunction       isequal isnotequal isgreater isgreaterequal isless islessequal islessgreater
-syn keyword clFunction       isfinite isinf isnan isnormal isordered isunordered signbit any all bitselect select
+syn match clFunction         "is\(finite\|inf\|nan\|normal\|ordered\|unordered\)\s*("me=e-1,he=e-1
+syn match clFunction         "is\(\(not\)\?equal\|\(greater\|less\)\(equal\)\?\|lessgreater\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(signbit\|any\|all\|bitselect\|select\)\s*("me=e-1,he=e-1
 
 " vector data load and store functions
-syn keyword clFunction       vload_half vstore_half
-syn match clFunction         "vload\(2\|3\|4\|8\|16\)("
-syn match clFunction         "vload_half\(2\|3\|4\|8\|16\)("
-syn match clFunction         "vloada_half\(2\|3\|4\|8\|16\)("
-syn match clFunction         "vloada_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\)("
-syn match clFunction         "vstore\(2\|3\|4\|8\|16\)("
-syn match clFunction         "vstore\(rte\|rtz\|rtp\|rtn\)("
-syn match clFunction         "vstore_half\(2\|3\|4\|8\|16\)("
-syn match clFunction         "vstore_half_\(rte\|rtz\|rtp\|rtn\)("
-syn match clFunction         "vstore_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\|rtn\)("
-syn match clFunction         "vstorea_half\(2\|3\|4\|8\|16\)("
-syn match clFunction         "vstorea_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\|rtn\)("
+syn match clFunction         "\(vload_half\|vstore_half\)\s*("me=e-1,he=e-1
+syn match clFunction         "vload\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
+syn match clFunction         "vload_half\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
+syn match clFunction         "vloada_half\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
+syn match clFunction         "vloada_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\)\s*("me=e-1,he=e-1
+syn match clFunction         "vstore\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
+syn match clFunction         "vstore\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
+syn match clFunction         "vstore_half\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
+syn match clFunction         "vstore_half_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
+syn match clFunction         "vstore_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
+syn match clFunction         "vstorea_half\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
+syn match clFunction         "vstorea_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
 
 " image read and write functions
-syn match clFunction         "read_image\(f\|i\|ui\|h\)("
-syn match clFunction         "write_image\(f\|i\|ui\|h\)("
-syn keyword clFunction       get_image_width get_image_height get_image_depth get_image_array_size
-syn keyword clFunction       get_image_dim get_image_channel_data_type get_image_channel_order
+syn match clFunction         "read_image\(f\|i\|ui\|h\)\s*("me=e-1,he=e-1
+syn match clFunction         "write_image\(f\|i\|ui\|h\)\s*("me=e-1,he=e-1
+syn match clFunction         "get_image_\(width\|height\|depth\|array_size\)\s*("me=e-1,he=e-1
+syn match clFunction         "get_image_\(dim\|channel_data_type\|channel_order\)\s*("me=e-1,he=e-1
 
 " explicit memory fence functions
-syn keyword clFunction       barrier mem_fence read_mem_fence write_mem_fence
+syn match clFunction         "\(barrier\|\(read_\|write_\)\?mem_fence\)\s*("me=e-1,he=e-1
 
 " async copies from global to local mem to and fro and prefetch
-syn keyword clFunction       async_work_group_copy async_work_group__strided_copy wait_group_events prefetch
+syn match clFunction         "async_work_group_\(strided_\)\?copy\s*("me=e-1,he=e-1
+syn match clFunction         "\(wait_group_events\|prefetch\)\s*("me=e-1,he=e-1
 
 " atomic functions
-syn match clFunction         "atom\(ic\)\?_\(add\|sub\|xchg\|inc\|dec\|cmpxchg\|min\|max\|and\|or\|xor\)("
+syn match clFunction         "atom\(ic\)\?_\(add\|sub\|xchg\|inc\|dec\|cmpxchg\|min\|max\|and\|or\|xor\)\s*("me=e-1,he=e-1
 
 syn keyword clConstant       MAXFLOAT HUGE_VAL HUGE_VALF INFINITY NAN
 
