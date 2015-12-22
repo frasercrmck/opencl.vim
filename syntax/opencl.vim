@@ -63,11 +63,11 @@ syn match clCast             "as_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\
 
 syn match clCast             "as_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
 
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
+syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
 
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)_sat\s*("me=e-1,he=e-1
+syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)_sat\s*("me=e-1,he=e-1
 
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\))\(2\|3\|4\|8\|16\)_sat_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
+syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)_sat_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
 
 " work item functions
 syn match clFunction         "get_work_dim\s*("me=e-1,he=e-1
