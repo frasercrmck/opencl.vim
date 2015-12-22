@@ -84,7 +84,7 @@ syn match clFunction         "log\(2\|10\|1p\|b\)\s*("me=e-1,he=e-1
 syn match clFunction         "\(mad\|modf\)\s*("me=e-1,he=e-1
 syn match clFunction         "\(max\|min\)mag\s*("me=e-1,he=e-1
 syn match clFunction         "\(nan\|nextafter\)\s*("me=e-1,he=e-1
-syn match clFunction         "pow\(n\|r\)\s*("me=e-1,he=e-1
+syn match clFunction         "pow\(n\|r\)\?\s*("me=e-1,he=e-1
 syn match clFunction         "\(remainder\|remquo\|rint\|rootn\|round\|sqrt\|rsqrt\)\s*("me=e-1,he=e-1
 syn match clFunction         "\(tgamma\|trunc\)\s*("me=e-1,he=e-1
 
