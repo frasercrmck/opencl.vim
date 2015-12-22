@@ -112,18 +112,10 @@ syn match clFunction         "\vis((not)?equal|(greater|less)(equal)?|lessgreate
 syn match clFunction         "\v(signbit|any|all|bitselect|select)\s*\("me=e-1,he=e-1
 
 " vector data load and store functions
-syn match clFunction         "\v(vload_half|vstore_half)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvload(2|3|4|8|16)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvload_half(2|3|4|8|16)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvloada_half(2|3|4|8|16)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvloada_half(2|3|4|8|16)_(rte|rtz|rtp)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvstore(2|3|4|8|16)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvstore(rte|rtz|rtp|rtn)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvstore_half(2|3|4|8|16)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvstore_half_(rte|rtz|rtp|rtn)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvstore_half(2|3|4|8|16)_(rte|rtz|rtp|rtn)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvstorea_half(2|3|4|8|16)\s*\("me=e-1,he=e-1
-syn match clFunction         "\vvstorea_half(2|3|4|8|16)_(rte|rtz|rtp|rtn)\s*\("me=e-1,he=e-1
+" vload<n> & vstore<n>
+syn match clFunction         "\vv(load|store)(2|3|4|8|16)?\s*\("me=e-1,he=e-1
+" vload<a>_half<n><_roundingMode> & vstore<a>_half<n><_roundingMode>
+syn match clFunction         "\vv(load|store)(a)?_half(2|3|4|8|16)?(_(rte|rtz|rtp|rtn))?\s*\("me=e-1,he=e-1
 
 " image read and write functions
 syn match clFunction         "\v(read|write)_image(f|i|ui|h)\s*\("me=e-1,he=e-1
