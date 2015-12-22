@@ -48,7 +48,7 @@ syn keyword clType           sampler_t event_t
 " reserved types
 syn keyword clType           bool2 bool3 bool4 bool8 bool16
 syn keyword clType           quad2 quad3 quad4 quad8 quad16
-syn match clType             "\(float\|double\)\(2\|3\|4\|8\|16\)x\(2\|3\|4\|8\|16\)"
+syn match clType             "\v(float|double)(2|3|4|8|16)x(2|3|4|8|16)"
 
 " abstract data types
 syn keyword clType           _cl_platform_id _cl_device_id _cl_context _cl_command_queue
@@ -66,80 +66,79 @@ syn match clCast             "\vas_((u?(char|short|int|long))|float|double)(2|3|
 syn match clCast             "\vconvert_((u?(char|short|int|long))|float|double)(2|3|4|8|16)?(_sat)?(_(rte|rtz|rtp|rtn))?\s*\("me=e-1,he=e-1
 
 " work item functions
-syn match clFunction         "get_work_dim\s*("me=e-1,he=e-1
-syn match clFunction         "get_local_\(id\|size\)\s*("me=e-1,he=e-1
-syn match clFunction         "get_global_\(id\|size\|offset\)\s*("me=e-1,he=e-1
-syn match clFunction         "get_\(num_groups\|group_id\)\s*("me=e-1,he=e-1
+syn match clFunction         "\vget_work_dim\s*\("me=e-1,he=e-1
+syn match clFunction         "\vget_local_(id|size)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vget_global_(id|size|offset)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vget_(num_groups|group_id)\s*\("me=e-1,he=e-1
 
 " math functions
-syn match clFunction         "a\?\(cos\|sin\|tan\)\(h\|pi\)\?\s*("me=e-1,he=e-1
-syn match clFunction         "\(sincos\|atan2\|atan2pi\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(cbrt\|ceil\|copysign\)\s*("me=e-1,he=e-1
-syn match clFunction         "erf\(c\)\?\s*("me=e-1,he=e-1
-syn match clFunction         "exp\(2\|10\|m1\)\s*("me=e-1,he=e-1
-syn match clFunction         "f\(abs\|dim\|loor\|ma\|max\|min\|mod\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(fract\|frexp\|hypot\|ilogb\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(ldexp\|lgamma\(_r\)\?\)\s*("me=e-1,he=e-1
-syn match clFunction         "log\(2\|10\|1p\|b\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(mad\|modf\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(max\|min\)mag\s*("me=e-1,he=e-1
-syn match clFunction         "\(nan\|nextafter\)\s*("me=e-1,he=e-1
-syn match clFunction         "pow\(n\|r\)\?\s*("me=e-1,he=e-1
-syn match clFunction         "\(remainder\|remquo\|rint\|rootn\|round\|sqrt\|rsqrt\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(tgamma\|trunc\)\s*("me=e-1,he=e-1
+syn match clFunction         "\va?(cos|sin|tan)(h|pi)?\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(sincos|atan2|atan2pi)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(cbrt|ceil|copysign)\s*\("me=e-1,he=e-1
+syn match clFunction         "\verf(c)?\s*\("me=e-1,he=e-1
+syn match clFunction         "\vexp(2|10|m1)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vf(abs|dim|loor|ma|max|min|mod)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(fract|frexp|hypot|ilogb)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(ldexp|lgamma(_r)?)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vlog(2|10|1p|b)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(mad|modf)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(max|min)mag\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(nan|nextafter)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vpow(n|r)?\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(remainder|remquo|rint|rootn|round|sqrt|rsqrt)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(tgamma|trunc)\s*\("me=e-1,he=e-1
 
 " half- and native-functions
-syn match clFunction         "\(half_\|native_\)\(cos\|divide\|exp\|exp2\|exp10\|log\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(half_\|native_\)\(log2\|log10\|powr\|recip\|rsqrt\|sin\|sqrt\|tan\)\s*("me=e-1,he=e-1
+syn match clFunction         "\v(half_|native_)(cos|divide|exp|exp2|exp10|log)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(half_|native_)(log2|log10|powr|recip|rsqrt|sin|sqrt|tan)\s*\("me=e-1,he=e-1
 
 " integer functions
-syn match clFunction         "\(abs\(_diff\)\?\|add_sat\|r\?hadd\|clz\|mad_\(hi\|sat\)\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(max\|min\|mul_hi\|rotate\|sub_sat\|upsample\|mad24\|mul24\)\s*("me=e-1,he=e-1
+syn match clFunction         "\v(abs(_diff)?|add_sat|r?hadd|clz|mad_(hi|sat))\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(max|min|mul_hi|rotate|sub_sat|upsample|mad24|mul24)\s*\("me=e-1,he=e-1
 
 " common functions
-syn match clFunction         "\(clamp\|degrees\|max\|min\|mix\|radians\|step\|smoothstep\|sign\)\s*("me=e-1,he=e-1
+syn match clFunction         "\v(clamp|degrees|max|min|mix|radians|step|smoothstep|sign)\s*\("me=e-1,he=e-1
 
 " geometric functions
-syn match clFunction         "\(cross\|dot\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(fast_\)\?\(distance\|length\|normalize\)\s*("me=e-1,he=e-1
+syn match clFunction         "\v(cross|dot)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(fast_)?(distance|length|normalize)\s*\("me=e-1,he=e-1
 
 " miscellaneous vector functions
-syn match clFunction         "\(vec_step\|shuffle\|shuffle2\)\s*("me=e-1,he=e-1
+syn match clFunction         "\v(vec_step|shuffle(2)?)\s*\("me=e-1,he=e-1
 
 " relational functions
-syn match clFunction         "is\(finite\|inf\|nan\|normal\|ordered\|unordered\)\s*("me=e-1,he=e-1
-syn match clFunction         "is\(\(not\)\?equal\|\(greater\|less\)\(equal\)\?\|lessgreater\)\s*("me=e-1,he=e-1
-syn match clFunction         "\(signbit\|any\|all\|bitselect\|select\)\s*("me=e-1,he=e-1
+syn match clFunction         "\vis(finite|inf|nan|normal|ordered|unordered)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vis((not)?equal|(greater|less)(equal)?|lessgreater)\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(signbit|any|all|bitselect|select)\s*\("me=e-1,he=e-1
 
 " vector data load and store functions
-syn match clFunction         "\(vload_half\|vstore_half\)\s*("me=e-1,he=e-1
-syn match clFunction         "vload\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
-syn match clFunction         "vload_half\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
-syn match clFunction         "vloada_half\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
-syn match clFunction         "vloada_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\)\s*("me=e-1,he=e-1
-syn match clFunction         "vstore\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
-syn match clFunction         "vstore\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
-syn match clFunction         "vstore_half\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
-syn match clFunction         "vstore_half_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
-syn match clFunction         "vstore_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
-syn match clFunction         "vstorea_half\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
-syn match clFunction         "vstorea_half\(2\|3\|4\|8\|16\)_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
+syn match clFunction         "\v(vload_half|vstore_half)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvload(2|3|4|8|16)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvload_half(2|3|4|8|16)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvloada_half(2|3|4|8|16)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvloada_half(2|3|4|8|16)_(rte|rtz|rtp)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvstore(2|3|4|8|16)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvstore(rte|rtz|rtp|rtn)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvstore_half(2|3|4|8|16)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvstore_half_(rte|rtz|rtp|rtn)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvstore_half(2|3|4|8|16)_(rte|rtz|rtp|rtn)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvstorea_half(2|3|4|8|16)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vvstorea_half(2|3|4|8|16)_(rte|rtz|rtp|rtn)\s*\("me=e-1,he=e-1
 
 " image read and write functions
-syn match clFunction         "read_image\(f\|i\|ui\|h\)\s*("me=e-1,he=e-1
-syn match clFunction         "write_image\(f\|i\|ui\|h\)\s*("me=e-1,he=e-1
-syn match clFunction         "get_image_\(width\|height\|depth\|array_size\)\s*("me=e-1,he=e-1
-syn match clFunction         "get_image_\(dim\|channel_data_type\|channel_order\)\s*("me=e-1,he=e-1
+syn match clFunction         "\v(read|write)_image(f|i|ui|h)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vget_image_(width|height|depth|array_size)\s*\("me=e-1,he=e-1
+syn match clFunction         "\vget_image_(dim|channel_data_type|channel_order)\s*\("me=e-1,he=e-1
 
 " explicit memory fence functions
-syn match clFunction         "\(barrier\|\(read_\|write_\)\?mem_fence\)\s*("me=e-1,he=e-1
+syn match clFunction         "\v(barrier|(read_|write_)?mem_fence)\s*\("me=e-1,he=e-1
 
 " async copies from global to local mem to and fro and prefetch
-syn match clFunction         "async_work_group_\(strided_\)\?copy\s*("me=e-1,he=e-1
-syn match clFunction         "\(wait_group_events\|prefetch\)\s*("me=e-1,he=e-1
+syn match clFunction         "\vasync_work_group_(strided_)?copy\s*\("me=e-1,he=e-1
+syn match clFunction         "\v(wait_group_events|prefetch)\s*\("me=e-1,he=e-1
 
 " atomic functions
-syn match clFunction         "atom\(ic\)\?_\(add\|sub\|xchg\|inc\|dec\|cmpxchg\|min\|max\|and\|or\|xor\)\s*("me=e-1,he=e-1
+syn match clFunction         "\vatom(ic)?_(add|sub|xchg|inc|dec|cmpxchg|min|max|and|or|xor)\s*\("me=e-1,he=e-1
 
 syn keyword clConstant       MAXFLOAT HUGE_VAL HUGE_VALF INFINITY NAN
 
