@@ -93,7 +93,7 @@ syn match clFunction         "\(half_\|native_\)\(cos\|divide\|exp\|exp2\|exp10\
 syn match clFunction         "\(half_\|native_\)\(log2\|log10\|powr\|recip\|rsqrt\|sin\|sqrt\|tan\)\s*("me=e-1,he=e-1
 
 " integer functions
-syn match clFunction         "\(abs\(diff\)\?\|add_sat\|r\?hadd\|clz\|mad_\(hi\|sat\)\)\s*("me=e-1,he=e-1
+syn match clFunction         "\(abs\(_diff\)\?\|add_sat\|r\?hadd\|clz\|mad_\(hi\|sat\)\)\s*("me=e-1,he=e-1
 syn match clFunction         "\(max\|min\|mul_hi\|rotate\|sub_sat\|upsample\|mad24\|mul24\)\s*("me=e-1,he=e-1
 
 " common functions
