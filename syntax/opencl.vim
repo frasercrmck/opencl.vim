@@ -59,15 +59,11 @@ syn keyword clType           cl_image_format
 
 syn keyword clCast           vec_type_hint work_group_size_hint aligned packed endian
 
-syn match clCast             "as_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\s*("me=e-1,he=e-1
+" as_destType<n>
+syn match clCast             "\vas_((u?(char|short|int|long))|float|double)(2|3|4|8|16)?\s*\("me=e-1,he=e-1
 
-syn match clCast             "as_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
-
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)\s*("me=e-1,he=e-1
-
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)_sat\s*("me=e-1,he=e-1
-
-syn match clCast             "convert_\(uchar\|char\|ushort\|short\|uint\|int\|ulong\|long\|float\|double\)\(2\|3\|4\|8\|16\)_sat_\(rte\|rtz\|rtp\|rtn\)\s*("me=e-1,he=e-1
+" convert_destType<n><_sat><_roundingMode>
+syn match clCast             "\vconvert_((u?(char|short|int|long))|float|double)(2|3|4|8|16)?(_sat)?(_(rte|rtz|rtp|rtn))?\s*\("me=e-1,he=e-1
 
 " work item functions
 syn match clFunction         "get_work_dim\s*("me=e-1,he=e-1
