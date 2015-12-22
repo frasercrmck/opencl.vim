@@ -2,7 +2,7 @@
 " Language:	OpenCL (Open Computing Language)
 " Developer:	Terence Ou (rivan_@msn.com)
 " Maintainer:	Fraser Cormack (frasercrmck@gmail.com)
-" Last Change:	28-November-2014
+" Last Change:	22-December-2015
 
 if version < 600
   syntax clear
